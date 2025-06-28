@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LeadingEdge Virtual Insight</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <style>
+    body {
+      background: #0f172a;
+      color: #fff;
+    }
+    .typing::after {
+      content: '|';
+      animation: blink 1s infinite;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+  </style>
+</head>
+<body class="font-sans">
+  <header class="p-6 text-center animate__animated animate__slideInDown">
+    <h1 class="text-4xl md:text-6xl font-bold text-green-400">LeadingEdge Virtual Insight</h1>
+    <p id="typewriter" class="text-xl mt-2 typing text-gray-300"></p>
+  </header>
+
+  <main class="px-6 md:px-20 py-10">
+    <!-- Projects Section -->
+    <section class="mb-16 animate__animated animate__slideInLeft">
+      <h2 class="text-3xl font-semibold mb-4 text-green-300">🚀 Featured Projects</h2>
+      <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <li class="bg-gray-800 p-4 rounded-xl shadow-lg hover:shadow-2xl transition">
+          <h3 class="text-xl font-bold text-green-300">SafeGoals Algorithm</h3>
+          <p>AI-powered sports prediction system with goal accuracy.</p>
+          <a href=" https://safe-goals.vercel.app/" class="text-green-400 underline">View Project</a>
+        </li>
+         <li class="bg-gray-800 p-4 rounded-xl shadow-lg hover:shadow-2xl transition">
+          <h3 class="text-xl font-bold text-green-300">King Of Curses</h3>
+          <p>A jujutsu kaisen powered game about Sukunna vs Mahoraga.</p>
+          <a href=" https://jjk-kubiten.vercel.app/index.html" class="text-green-400 underline">Explore Now</a>
+        </li>
+        <li class="bg-gray-800 p-4 rounded-xl shadow-lg hover:shadow-2xl transition">
+          <h3 class="text-xl font-bold text-green-300">Juggernaut Diet Plan</h3>
+          <p>Weight loss & muscle gain diet system tailored to region & race.</p>
+          <a href="https://juggernaut-beryl.vercel.app/" class="text-green-400 underline">Explore Now</a>
+        </li>
+        <li class="bg-gray-800 p-4 rounded-xl shadow-lg hover:shadow-2xl transition">
+          <h3 class="text-xl font-bold text-green-300">Preview</h3>
+          <p>Catalogue preview design</p>
+          <a href=" https://nozel-silva.github.io/Different-/" class="text-green-400 underline">Visit Site</a>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Course Downloads -->
+    <section class="mb-16 animate__animated animate__slideInRight">
+      <h2 class="text-3xl font-semibold mb-4 text-green-300">📚 Download Courses</h2>
+      <div class="space-y-4">
+        <a href="#" class="block bg-green-700 p-4 rounded-xl shadow hover:bg-green-800 transition">Download Complete Python Bootcamp</a>
+        <a href="#" class="block bg-green-600 p-4 rounded-xl shadow hover:bg-green-700 transition">Download Full Web Dev Stack (HTML/CSS/JS)</a>
+        <a href="#" class="block bg-green-500 p-4 rounded-xl shadow hover:bg-green-600 transition">Download AI/ML Crash Course</a>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="animate__animated animate__slideInUp">
+      <h2 class="text-3xl font-semibold mb-4 text-green-300">🌐 About LeadingEdge</h2>
+      <p class="text-gray-300 max-w-3xl">
+        LeadingEdge is a cutting-edge innovation brand focused on creating AI tools, prediction systems, educational platforms, and digital services that empower individuals and businesses. Through our flagship agent L.E.V.I (Logical, Evolving, Versatile Intelligence), we build systems that solve real-world problems — from smart sports betting algorithms to fitness frameworks and coding platforms. Whether you're an elite learner or a brand seeking dominance, LeadingEdge exists to elevate your journey.
+      </p>
+    </section>
+  </main>
+
+  <footer class="p-6 text-center text-gray-500 text-sm">
+    © 2025 LeadingEdge Virtual Insight. All rights reserved.
+  </footer>
+
+  <script>
+    const text = [
+      "Your AI-Powered Success Engine ",
+      "Smart Predictions, Smarter Growth ",
+      "Download. Learn. Dominate. ",
+      "LeadingEdge: More Than Just Code "
+    ];
+    let i = 0, j = 0, currentText = '', isDeleting = false;
+
+    function type() {
+      if (i < text.length) {
+        if (!isDeleting && j <= text[i].length) {
+          currentText = text[i].substring(0, j++);
+        } else if (isDeleting && j >= 0) {
+          currentText = text[i].substring(0, j--);
+        }
+        document.getElementById('typewriter').textContent = currentText;
+
+        if (j === text[i].length && !isDeleting) {
+          isDeleting = true;
+          setTimeout(type, 1200);
+        } else if (isDeleting && j === 0) {
+          isDeleting = false;
+          i = (i + 1) % text.length;
+          setTimeout(type, 400);
+        } else {
+          setTimeout(type, isDeleting ? 50 : 100);
+        }
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', type);
+  </script>
+</body>
+</html>
